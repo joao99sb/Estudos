@@ -1,0 +1,21 @@
+import React,{useState} from 'react' 
+
+
+export default function todos(){ 
+    const tech = [ 'node', 'express' ] 
+    const [novo,setNovo]=useState('') 
+    const adicionar = (e) =>{ 
+        setNovo(e.target.value) 
+        console.log(novo);
+    } 
+    
+    return( 
+    
+        <>
+            <ul> 
+                {tech.map(i => <li>{i}</li>)} 
+                <input type="text" onChange={adicionar}/> 
+            </ul>  
+        </> 
+    )
+}

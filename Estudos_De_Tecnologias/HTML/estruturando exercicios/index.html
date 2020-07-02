@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios Html</title>
+    <style>
+       
+        #conteudo{
+            padding: 30px 0 30px 0 ;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Exercicios HTML
+    </heade >
+    <nav>
+        <a href="textos.html">01) textos 1</a>|
+        <a href="textos2.html">02) textos 2</a>|       
+        <a href="listas.html">03) listas</a>
+        <a href="listaAninhada.html">04) listas Aninhadas</a>|
+        <a href="links.html">05) links</a>|
+        <a href="tabela.html">06) taberlas</a>|
+        <a href="formulario/form.html">07) formulário</a>|
+        <a href="imagens.html">08) imagem</a>|
+        <a href="desafioImg.html">09) desafio imagem</a>|
+        <a href="video.html">10) video</a>|
+        
+    </nav>
+
+    <section id="conteudo">
+
+    </section>
+
+    <footer>
+        &copy; Joao Victor
+    </footer>
+
+
+
+    <script>    
+        
+        document.querySelectorAll('a').forEach(link => {
+            link.onclick = function(e){
+                const conteudo = document.getElementById('conteudo')
+                e.preventDefault()
+               
+                fetch(link.href) 
+                    .then(resp =>resp.text())
+                    .then(html => conteudo.innerHTML = html)
+                
+            } 
+        })
+
+
+
+    </script>
+
+</body>
+</html>

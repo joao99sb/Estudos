@@ -1,0 +1,79 @@
+<h1>projeto</h1>
+<ul class="tree">
+    <li>
+        <span jv-folder >backend</span>
+        <ul>
+            <li>
+                <span jv-folder >app</span>
+                <ul>
+                    <li>
+                        produto.js  
+                    </li>
+                    <li>
+                        usuario.js
+                    </li>
+                    <li>
+                        venda.js
+                    </li>
+                </ul>
+                
+            </li>
+            <li>
+                <span jv-folder >config</span>
+                <ul>
+                    <li>
+                        banco.js
+                    </li>
+                    <li>
+                        rota.js
+                    </li>
+                    <li>
+                        servidor,js
+                    </li>
+                </ul>
+            </li>
+        </ul>               
+    </li>
+    <li>
+        <span jv-folder >Frontend</span>
+        <ul>
+            <li>
+                <span jv-folder >publico</span>
+                <ul>
+                    <li>
+                        app.css
+                    </li>
+                    <li>
+                        app.js
+                    </li>
+                    <li>
+                        index.html
+                    </li>
+                </ul>
+            </li>                       
+        </ul>
+    </li>
+</ul>
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css ">
+
+
+<script>
+    
+    document.querySelectorAll('[jv-folder]').forEach(folder => {
+       
+        folder.addEventListener("click", () => {
+            const ul = folder.nextElementSibling
+            
+            
+            const d = ul.style.display
+            ul.style.display = d === 'none'? 'block':'none'
+
+            
+            
+        })
+
+        
+    })
+
+
+</script>

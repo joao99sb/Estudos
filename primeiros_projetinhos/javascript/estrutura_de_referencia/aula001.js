@@ -1,0 +1,6 @@
+var t = String(window.prompt("qual seu nome"))
+var s = Number(t.length)
+document.write(`seunome maiusculo se escreve ${t.toUpperCase()} <br/>`) 
+document.write(`seu nome ${t} tem ${s} letras <br/>`)
+var n1 = s.toLocaleString('pt-BR', {style: 'currency', currency: "EUR"})
+document.write(n1)

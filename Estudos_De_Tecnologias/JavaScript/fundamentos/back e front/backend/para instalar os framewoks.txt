@@ -1,0 +1,11 @@
+para instalar o packege.json = no terminal da pasta escreva "npm init -y"
+
+para instalar o express = no terminal "npm install express"
+
+para isntalar o nodemon = "npm install nodemon -D"
+
+para instalar o knex = "npm isntall knex"
+
+para instalar o SQLite= "npm install sqlite3"
+
+comando q cria as configuracoes de acesso ao banco de dados="npx knex init"

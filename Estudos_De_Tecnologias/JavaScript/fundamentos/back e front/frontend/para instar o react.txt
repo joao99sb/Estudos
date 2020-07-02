@@ -1,0 +1,1 @@
+para instalar o react = "npx creat-react-app nome da pasta"

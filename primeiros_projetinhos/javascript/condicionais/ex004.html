@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>País</title>
+</head>
+<body>
+    <h1>Seu país</h1>
+    país <input type="text" name="txtvel" id="txt">
+    <input type="button" value="Verificar" id="btt">
+    <div id="res">
+
+    </div>
+    <script>
+        var a = window.document.querySelector('input#txt')
+        var res = window.document.querySelector('div#res')
+        var btt = window.document.querySelector('input#btt')
+        btt.addEventListener('click', f)
+        
+        function f() {
+            var b = a.value
+            var b1 = b.substring(0,1).toUpperCase().concat(b.substring(1)) /*deixa apenas a primeria letra da frase maiuscula*/ 
+            res.innerHTML = `<p>Você está em <strong>${b1}</strong><p>`
+            if (b1 == 'Brasil') {
+                res.innerHTML += '<p>Você é <strong>Brasileiro!</strong><p>'
+            } else {
+                res.innerHTML += '<p>Você é <strong>Estrangeiro!</strong><p>'
+            }
+        }
+    </script>
+</body>
+</html>

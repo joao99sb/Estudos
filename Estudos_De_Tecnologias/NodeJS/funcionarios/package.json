@@ -1,0 +1,19 @@
+{
+  "name": "funcionarios",
+  "version": "1.0.0",
+  "description": "tanto faz",
+  "main": "funcionarios.js",
+  "scripts": {
+    "start": "nodemon",    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sla",
+    "mano"
+  ],
+  "author": "joao victor",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
