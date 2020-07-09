@@ -1,4 +1,4 @@
-const connection = require('../connection')
+const connection = require('../../database/connection')
 // yarn add bcrypt para criptografar as senhas
 const bcrypt = require('bcrypt')
 const crypto = require('crypto')
@@ -34,20 +34,24 @@ module.exports ={
             await connection('users').insert({
                 id,
                 email,
-                password
+                password,
+
             })            
         } catch (err) {
-            return res.status(409).json({error:'email ja cadastrado'})
+            return res.status(409).json({error:err})
         }
             
-        const result = await connection('users').where('email',email).select('email')
+        const result = await connection('users').where('email',email).select('email','id')
 
         if(result.length == 0){
             return res.status(500).json({error:'erro ao fazer o cadastro'})
         }
+        
+        let user = result[0].id
+        
         return res.send({
-            result.id,
-            token:generateToken({id:result.id})
+            user,
+            token: generateToken({id: user})
         })
     },
 
@@ -57,32 +61,5 @@ module.exports ={
         
         return res.json(result)
     },
-
-
-
-
-    async login(req,res){
-        const { email, senha } = req.body
-
-        const result = await connection('users')
-            .where('email',email)
-            .select('*')
-        
-        
-        if(result.length < 1){
-            return res.status(401).json({error:'erro de autenticação'})
-        }
-
-        if(!await bcrypt.compare(senha, result[0].password)){
-            return res.status(400).json({error:'invalid password'})
-        }
-
-
-
-        return res.send({
-            email,
-            token: generateToken({result.id})
-        })
-    }
 
 }

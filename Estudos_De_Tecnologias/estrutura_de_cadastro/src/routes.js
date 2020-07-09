@@ -1,11 +1,20 @@
 const express = require('express')
 const routes = express.Router()
-const user = require('./database/controllers/userController')
+const user = require('./app/controllers/userController')
+const project = require('./app/controllers/projectController')
+const authMiddleware = require('./app/middlewares/auth')
+const authController = require('./app/controllers/authController')
 
 routes.post('/cadastro',user.create)
 routes.get('/cadastro',user.index)
 
-routes.post('/login',user.login)
+routes.post('/login',authController.login)
+
+routes.post('/forgot-password',authController.forgotPassword)
+routes.post('/reset-password',authController.resetPassword)
+
+routes.use(authMiddleware)
+routes.get('/',project.test)
 
 
-module.exports =routes
+module.exports = routes
