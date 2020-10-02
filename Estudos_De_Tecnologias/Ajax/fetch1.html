@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        const url = 'dados/estados.json'
+        fetch(url)
+            .then(resp =>resp.json())
+            .then(res => {
+                const linhas = Array.from(res).map(res =>{
+                    const tdId = document.createElement('td')
+                    tdId.innerHTML = res.id
+                    
+                    const tdNome = document.createElement('td')
+                    tdNome.innerHTML = res.nome
+                    
+                    const tdSigla = document.createElement('td')
+                    tdSigla.innerHTML = res.sigla
+
+
+                    const tr = document.createElement('tr')
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome)
+                    tr.appendChild(tdSigla)
+
+                    
+                    return tr
+                })
+                const table = document.createElement('table')
+                Array.from(linhas).forEach(it => table.appendChild(it))
+                document.body.insertAdjacentElement('beforeend',table)
+
+
+            } )
+            .catch(e=>console.log(e))
+    </script>
+</body>
