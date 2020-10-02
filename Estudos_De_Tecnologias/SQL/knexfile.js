@@ -1,5 +1,8 @@
 // Update with your config settings.
 
+require('dotenv').config
+const pass = process.env.POST_PASS
+
 module.exports = {
 
   development: {
@@ -7,7 +10,7 @@ module.exports = {
     connection: {
       host:'localhost',      
       user:'postgres',
-      password:'2407',
+      password:`${pass}`,
       database:'teste'
     },
     migrations:{
